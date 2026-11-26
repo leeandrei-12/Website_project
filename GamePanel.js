@@ -2,78 +2,73 @@ const games = [
 
     {
         name: "Patintero",
-        image: "Patintero.jpg",
+        image: "PT.png",
 
         description:
-            "Pogi si Darwin",
+            "Patintero is a traditional Filipino outdoor game where two teams compete against each other. One team guards the marked lines while the opposing team attempts to cross without getting tagged.",
 
         players:
-            "Pogi si Darwin",
+            "At least 6 players (3 or more players per team).",
 
         materials:
-            "Pogi si Darwin",
+            "Chalk,",
 
-        instructions:
-            "Pogi si Darwin"
+        instructions: [
+            "Divide the players into two teams.",
+            "Draw a rectangular grid on the ground.",
+            "One team guards the marked lines.",
+            "The other team attempts to cross without getting tagged.",
+            "Switch roles after each round."
+        ]
     },
 
     {
         name: "Tumbang Preso",
-        image: "TP.jpg",
-
-        description:
-            "Pogi si Darwin",
-        players:
-            "Pogi si Darwin",
-
-        materials:
-            "Pogi si Darwin",
-
-        instructions:
-            "Pogi si Darwin",
+        image: "TP.png"
     },
 
     {
         name: "Chinese Garter",
-        image: "CG.jpg",
+        image: "CG.png"
     },
 
     {
         name: "Langit Lupa",
-        image: "LaL.jpg",
+        image: "LL.png"
     },
 
     {
         name: "Tago-Taguan",
-        image: "TT.jpg",
-     },
+        image: "TT.png"
+    },
 
     {
-        name: "Pogi si Darwin",
-        image: "pogiako.jpg",
-      },
+        name: "Luksong Baka",
+        image: "LB.png"
+    },
 
     {
-        name: "Pogi si Darwin",
-        image: "pogiako.jpg",
-     },
+        name: "Luksong Tinik",
+        image: "LT.png"
+    },
 
     {
-        name: "Pogi si Darwin",
-        image: "pogiako.jpg",
-      },
+        name: "Agawan Base",
+        image: "AB.png"
+    },
 
     {
-        name: "Pogi si Darwin",
-        image: "pogiako.jpg",
-      },
+        name: "Piko",
+        image: "PK.png"
+    },
 
     {
-        name: "Pogi si Darwin",
-        image: "pogiako.jpg",
-      }
+        name: "Sungka",
+        image: "SK.png"
+    }
 
 ];
+
 
 /* =====================================
    CURRENT SLIDE
@@ -81,16 +76,15 @@ const games = [
 
 let currentSlide = 0;
 
+
 /* =====================================
    DISPLAY GAME INFORMATION
 ===================================== */
 
 function showSlide(index) {
 
-    // Update current slide
     currentSlide = index;
 
-    // Get selected game
     const game = games[currentSlide];
 
     // Update game title
@@ -109,21 +103,25 @@ function showSlide(index) {
         game.name;
 
     document.getElementById("game-description").textContent =
-        game.description;
+        game.description || "";
 
     document.getElementById("game-players").textContent =
-        game.players;
+        game.players || "";
 
     document.getElementById("game-materials").textContent =
-        game.materials;
+        game.materials || "";
 
-    document.getElementById("game-instructions").textContent =
-        game.instructions;
+    // Display instructions as a numbered list
+    document.getElementById("game-instructions").innerHTML =
+        game.instructions
+            ? game.instructions.map(step => `<li>${step}</li>`).join("")
+            : "";
 
     // Update active indicator
     updateIndicators();
 
 }
+
 
 /* =====================================
    NEXT SLIDE
@@ -133,7 +131,6 @@ function nextSlide() {
 
     currentSlide++;
 
-    // Return to first slide after the last slide
     if (currentSlide >= games.length) {
         currentSlide = 0;
     }
@@ -141,6 +138,7 @@ function nextSlide() {
     showSlide(currentSlide);
 
 }
+
 
 /* =====================================
    PREVIOUS SLIDE
@@ -150,7 +148,6 @@ function previousSlide() {
 
     currentSlide--;
 
-    // Return to last slide if currently on first
     if (currentSlide < 0) {
         currentSlide = games.length - 1;
     }
@@ -158,6 +155,7 @@ function previousSlide() {
     showSlide(currentSlide);
 
 }
+
 
 /* =====================================
    CREATE SLIDE INDICATORS
@@ -168,10 +166,8 @@ function createIndicators() {
     const indicatorContainer =
         document.getElementById("indicators");
 
-    // Clear existing indicators
     indicatorContainer.innerHTML = "";
 
-    // Create 10 buttons
     games.forEach((game, index) => {
 
         const button = document.createElement("button");
@@ -183,7 +179,6 @@ function createIndicators() {
             "Go to " + game.name
         );
 
-        // Click indicator to change slide
         button.addEventListener("click", function() {
 
             showSlide(index);
@@ -197,6 +192,7 @@ function createIndicators() {
     updateIndicators();
 
 }
+
 
 /* =====================================
    UPDATE ACTIVE INDICATOR
@@ -223,11 +219,12 @@ function updateIndicators() {
 
 }
 
+
 /* =====================================
    INITIALIZE CAROUSEL
 ===================================== */
 
-// Generate 10 indicators
+// Generate indicators
 createIndicators();
 
 // Display the first game

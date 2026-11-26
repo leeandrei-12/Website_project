@@ -3,43 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Laro Name</title>
+
     <link rel="stylesheet" href="GamePanel.css">
 </head>
+
 <body>
 
+    <!-- NAVIGATION BAR -->
     <nav class="navbar">
-    <a href="#" class="brand">LARO NG LAHI</a>
-    <ul class="nav-links">
-      <li><a href="Homepage.html">HOME</a></li>
-      <li><a href="menu.html">MENU</a></li>
-      <li><a href="Homepage.html">ABOUT</a>
-      <li><a href="GamePanel.html">GAMES</a></li>
-    </ul>
-  </nav>
 
+        <a href="#" class="brand">LARO NG LAHI</a>
+
+        <ul class="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">GAMES</a></li>
+            <li><a href="#">LOG IN</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- MAIN CONTAINER -->
     <div class="container">
 
-        <!-- Main Carousel -->
+        <!-- GAME CAROUSEL -->
         <div class="carousel">
-            <h1>Laro Name</h1>
 
-            <button class="arrow left">&lt;</button>
-            <button class="arrow right">&gt;</button>
+            <h1 id="game-title">Patintero</h1>
 
-            <div class="indicators">
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-            </div>
+            <!-- GAME IMAGE -->
+            <img id="game-image" src="patintero.jpg" alt="Patintero">
+
+            <!-- LEFT ARROW -->
+            <button class="arrow left" onclick="previousSlide()">
+                &lt;
+            </button>
+
+            <!-- RIGHT ARROW -->
+            <button class="arrow right" onclick="nextSlide()">
+                &gt;
+            </button>
+
+            <!-- SLIDE INDICATORS -->
+            <div class="indicators" id="indicators"></div>
+
         </div>
 
-        <!-- Game Information -->
+        <!-- GAME INFORMATION -->
         <div class="game-information">
+
             <h2>Game Information</h2>
+
+            <div class="game-details">
+
+                <h3>Game Name</h3>
+                <p id="game-name">Patintero</p>
+
+                <h3>Description</h3>
+                <p id="game-description"></p>
+
+                <h3>Number of Players</h3>
+                <p id="game-players"></p>
+
+                <h3>Materials Needed</h3>
+                <p id="game-materials"></p>
+
+                <h3>How to Play</h3>
+                <ol id="game-instructions"></ol>
+
+            </div>
+
         </div>
 
     </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="GamePanel.js"></script>
 
 </body>
 </html>
