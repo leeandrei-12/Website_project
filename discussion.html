@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discussion Board | Laro ng Lahi</title>
+  <link rel="stylesheet" href="discussion.css"
+</head>
+<body class="background">
+
+  <nav class="navbar">
+    <a href="#" class="brand">LARO NG LAHI</a>
+    <ul class="nav-links">
+      <li><a href="Homepage.html">HOME</a></li>
+      <li><a href="menu.html">MENU</a></li>
+      <li><a href="Homepage.html">ABOUT</a></li>
+      <li><a href="GamePanel.html">GAMES</a></li>
+    </ul>
+  </nav>
+
+  <header class="board-header">
+    <p class="eyebrow">COMMUNITY HERITAGE FORUM</p>
+    <h1>DISCUSSION <span>BOARD</span></h1>
+  </header>
+
+  <section class="comment-form-card">
+    <form action="databaseforcomm.php" method="POST">
+      <input type="text" name="username" placeholder="Your Name" required>
+      <textarea name="comment" rows="3" placeholder="Share your thoughts on Laro ng Lahi..." required></textarea>
+      <button type="submit" name="submit" class="btn-gold">POST COMMENT</button>
+    </form>
+  </section>
+
+  <main class="board-columns">
+    <div class="panel-box">
+      <div class="panel-title">Featured Topics</div>
+    </div>
+
+    <div class="panel-box">
+      <div class="panel-title">Comment Section</div>
+      <iframe src="databaseforcomm.php"></iframe>
+    </div>
+
+    <div class="panel-box">
+      <div class="panel-title">Community Guidelines</div>
+    </div>
+  </main>
+
+</body>
+</html>

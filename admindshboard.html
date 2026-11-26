@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project LaNL | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="admin-container">
+
+        <h1>Admin Dashboard</h1>
+        <p>Manage Laro ng Lahi Games</p>
+
+        <form action="add-game.php" method="POST">
+
+            <label>Game Name</label>
+            <input type="text" name="game_name" required>
+
+            <label>Description</label>
+            <textarea name="description" required></textarea>
+
+            <label>Number of Players</label>
+            <input type="text" name="players">
+
+            <label>Equipment</label>
+            <textarea name="equipment"></textarea>
+
+            <label>Game Mechanics</label>
+            <textarea name="mechanics"></textarea>
+
+            <label>Instructions</label>
+            <textarea name="instructions"></textarea>
+
+            <label>Image Filename</label>
+            <input type="text" name="image"
+                   placeholder="patintero.jpg">
+
+            <button type="submit">Add Game</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
